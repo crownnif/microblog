@@ -44,7 +44,7 @@ app.use(express.static(__dirname + "/fonts"));
 
 //Server Starten
 app.listen(3000, function () {
-  console.log("listining on Port 3000");
+  console.log("listening on Port 3000");
 });
 
 //GET-Requests
