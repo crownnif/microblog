@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Neuer Benutzer
+    </title>
+    <link rel="stylesheet" href="default.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="header">
+            <table>
+                <tr>
+                    <th>
+                        <a href="/start"><img src="microblog-logo.png" alt="microblog-logo"
+                        style="max-width: 60px; max-height: 60px;"></a>
+                    </th>
+                    <th>
+                        <h1>microblog</h1>
+                    </th>
+                </tr>
+            </table>
+        </div>
+            <a href="/login">Anmelden</a>
+            <a href="/register">Registrieren</a>
+    </div>
+    <br>
+    <div align="center" class="content">
+        <form action="/newUser" method="post">
+            Ihr Benutzername:<br>
+            <input type="text" name="user" required>
+            <br>
+
+            <% nameerrors.forEach( function(error) { %>
+                <br>
+                    <%= error%>
+                <br>    
+                <% }); %>
+            
+            <br>
+            Email:<br>
+            <input type="email" name="email" required><br>
+            <br>
+            Passwort: <br>
+            <input type="password" name="password" required> <br>
+            <br>
+            Passwort wiederholen: <br>
+            <input type="password" name="passwordRepeated" required>
+            <br>
+
+            <% passerrors.forEach( function(error) { %>
+                    <br>
+                        <%= error%>
+                    <br>
+                <% }); %>
+            
+            <br>
+            <button type="submit">Registrieren</button>
+        </form>
+    </div>
+</body>
+
+</html>

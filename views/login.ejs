@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Login-Seite
+    </title>
+    <link rel="stylesheet" href="default.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="header">
+            <table>
+                <tr>
+                    <th>
+                        <a href="/start"><img src="microblog-logo.png" alt="microblog-logo"
+                        style="max-width: 60px; max-height: 60px;"></a>
+                    </th>
+                    <th>
+                        <h1>microblog</h1>
+                    </th>
+                </tr>
+            </table>
+        </div>
+            <a href="/">Homepage</a>
+            <a href="/register">Registrieren</a>
+    </div>
+    <br>
+    <div align="center" class="content">
+        <form action="/loginAttempt" method="post">
+            Nutzername:<br>
+            <input type="text" name="user" required>
+            <br>
+            <br>
+
+                <% nameerrors.forEach( function(error) { %>
+
+                        <%= error%>
+                        <br>
+                    <% }); %>
+            
+            <br>
+            Passwort: 
+            <br>
+            <input type="password" name="password" required><br>
+            <br>
+            
+            <% passerrors.forEach( function(error) { %>
+                
+                    <%= error%>
+                    
+                
+                <% }); %>
+            
+            <br>
+            <br>
+            <button type="submit" id="popUp">Anmelden</button>
+        </form>
+        
+    </div>
+</body>
+
+</html>

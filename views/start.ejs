@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>microblog - Feed</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="header">
+            <table>
+                <tr>
+                    <th>
+                        <a href="/start"><img src="microblog-logo.png" alt="microblog-logo" style="max-width: 60px; max-height: 60px;"></a>
+                    </th>
+                    <th>
+                        <h1>microblog</h1>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <% if( !sessionValue){ %>
+            <a href="/login">Anmelden</a>
+            <a href="/register">Registrieren</a>
+            <% } else {%>
+                <a href="/newPost">Neuen Post</a>
+                <a class="active" href="/start">Feed</a>
+                <a href="/userList">Nutzer</a>
+                <a href="/profile">Profil</a>
+                <a href="/signOff">Abmelden</a>
+                <% }%>
+    </div>
+
+    <div class="content">
+        <div class="float-container">
+
+            <div class="float-child-left">
+                <h4>recent posts:</h4>
+                <% rows.forEach( function(row) { %>
+        
+                    <div class="post">
+                        <hr>
+                        <div style="padding-bottom: 10px;">
+                            <%= row.username %> postete: <br>
+                        </div>
+                        <div >
+                            <%= row.content %> <br>
+                        </div>
+                        <div style=" padding-top: 10px;">
+                            <small>
+                                <%let date = new Date(row.postDateTime) %>
+        
+                                <i class="material-icons" style="font-size: 1em; position:relative; 
+                                top:0.17em; ">schedule</i>  <%=date.toLocaleTimeString("de-DE")+" / "+date.toLocaleDateString("de-DE") %> <br>
+                            </small>
+                        </div>
+                        <hr>
+                    </div>
+                    <br>
+                    <br>
+        
+                    <% }); %>
+            </div>
+            <% if(sessionValue){ %> 
+                <div class="float-child-right">
+                <h4>your chats:</h4>
+                <br>
+                <%chats.forEach((chat) => { 
+                    const profile = profiles.find((profile) => { return profile.userID == chat.userID2})%>
+                    <div style="text-indent: 2rem;">
+                        <hr>
+                        <form action="/chat" method="get">
+                        <h4><button type="submit"><%= profile.username %></button></h4>
+                        </form>
+                        <hr>
+                    </div>
+                    <br>
+                <% }) %>
+                </div>
+                <% }%>
+          </div>
+        
+    </div>
+    <% if(loggingIN==0){  %>
+        <script>
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Sie sind eingeloggt',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        </script>
+        <% } else if(registered==0){ 
+             %>
+            <script>
+            Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'Sie sind erfolgreich registriert',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            </script>
+        <% } else if(loggingOUT==0){ 
+            %>
+           <script>
+           Swal.fire({
+               position: 'top',
+               icon: 'success',
+               title: 'Sie sind erfolgreich abgemeldet',
+               showConfirmButton: false,
+               timer: 1500
+             })
+           </script>
+       <% } %>
+    <div style="clear:both;"></div>
+
+</body>
+
+</html>

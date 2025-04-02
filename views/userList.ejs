@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>microblog - User List</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="header">
+            <table>
+                <tr>
+                    <th>
+                        <a href="/start"><img src="microblog-logo.png" alt="microblog-logo"
+                                style="max-width: 60px; max-height: 60px;"></a>
+                    </th>
+                    <th>
+                        <h1>microblog</h1>
+                    </th>
+                </tr>
+            </table>
+        </div>
+            <a href="/newPost">Neuen Post</a>
+            <a href="/start">Feed</a>
+            <a class="active" href="/userList">Nutzer</a>
+            <a  href="/profile">Profil</a>
+            <a href="/signOff">Abmelden</a>
+    </div>
+    <div class="content">
+        <table>
+            <% allUser.forEach((userRow) => { %>
+                <tr>
+                    <td><%= userRow.username %></td>
+                    <td>
+                        <% if( follows.some( obj => obj.followsID==userRow.userID ) ){ %>
+                            <form action="/unfollowUser" method="POST">
+                                <input type="hidden" name="userID" value="<%= userRow.userID %>">
+                                <button type="submit">entfolgen</button>
+                            </form>
+                        <% } else { %>
+                            <form action="/followUser" method="POST">
+                                <input type="hidden" name="userID" value="<%= userRow.userID %>">
+                                <button type="submit">folgen</button>
+                            </form>
+                        <% } %>
+                    </td>
+                </tr>
+              <% }); %>
+        </table>
+    </div>
+</body>
+</html>

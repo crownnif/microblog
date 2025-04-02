@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="default.css">
+    <title>microblog - Neuer Post</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="header">
+            <table>
+                <tr>
+                    <th>
+                        <a href="/start"><img src="microblog-logo.png" alt="microblog-logo" style="max-width: 60px; max-height: 60px;"></a>
+                    </th>
+                    <th>
+                        <h1>microblog</h1>
+                    </th>
+                </tr>
+            </table>
+        </div>
+                <a class="active" href="/newPost">Neuen Post</a>
+                <a href="/start">Feed</a>
+                <a href="/userList">Nutzer</a>
+                <a href="/profile">Profil</a>
+                <a href="/signOff">Abmelden</a>
+    </div>
+    <br>
+    <div align="center" class="content">
+        <h4>new Post:</h4>
+        <form action="/addPost" method="POST">
+            <textarea rows="60" name="content" style="height:200px"> </textarea> <br>
+            <br>
+            <br>
+            <button type="submit">Absenden</button>
+        </form>
+    </div>
+</body>
+
+</html>

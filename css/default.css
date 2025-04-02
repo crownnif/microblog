@@ -1,0 +1,157 @@
+* {
+    font-family: "Signika Negative";
+}
+
+html {
+    background-color: lemonchiffon;
+}
+
+button[type], input[type], textarea{
+    border-radius: 10px;
+}
+
+button[type] {
+    font-size: 1.05rem;
+    background-color: rgba(153, 50, 204, 0.114);
+}
+
+.content {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.post {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.05rem;
+}
+
+.post div {
+    padding-left: 1rem
+}
+
+hr {
+    border-color: rgba(153, 50, 204, 0.114)
+}
+
+.header {
+    text-align: center;
+    color: black;
+    font-size: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+.navbar {
+    overflow: hidden;
+    position: sticky;
+    background-color: rgba(255, 250, 205, 0.611);
+
+    position: -webkit-sticky;
+    top: 0;
+    margin: 0;
+}
+
+.navbar .header {
+    float: left;
+    color: black;
+    text-align: center;
+    color: black;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    margin-right: 3rem;
+    text-decoration: none;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 20px;
+    margin: 4px;
+    text-decoration: none;
+    border-radius: 15px;
+}
+
+/* Right-aligned link */
+.navbar a.left {
+    float: left;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+    background-color: rgba(153, 50, 204, 0.114);
+    color: black;
+}
+
+/* Active/current link */
+.navbar a.active {
+    background-color: rgba(153, 50, 204, 0.114);
+    color: black;
+}
+
+.float-container {  /* https://coder-coder.com/display-divs-side-by-side/ */
+    width: 100%
+}
+
+.float-child-left {
+    width: 60%;
+    padding: 20px;
+    float: left;
+}  
+
+.float-child-right {
+    width: 30%;
+    padding: 20px;
+    float: right;
+}  
+
+
+
+@font-face {
+    font-family: Signika Negative;
+    src: url(SignikaNegative-VariableFont_wght.ttf);
+}
+
+/*testing animated background*/
+.bg {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg, yellow 0%, yellow 25%, yellow 51%, #ff357f 100%);
+    -webkit-animation: AnimateBG 20s ease infinite;
+            animation: AnimateBG 20s ease infinite;
+  }
+  
+  @-webkit-keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  }
